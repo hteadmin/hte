@@ -20,9 +20,9 @@ set :linked_dirs, %w{bin log tmp/pids tmp/cache tmp/sockets vendor/bundle public
 
 set :pty, false
 
-set :ssh_options, {
-  forward_agent: true
-}
+# set :ssh_options, {
+#   forward_agent: true
+# }
 
 # what specs should be run before deployment is allowed to
 # continue, see lib/capistrano/tasks/run_tests.cap
