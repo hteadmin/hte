@@ -3,7 +3,7 @@ set :deploy_user, 'vps60'
 
 # setup repo details
 set :scm, :git
-set :repo_url, 'git@bitbucket.org:hoangnghiem/hte.vn.git'
+set :repo_url, 'git@github.com:hteadmin/hte.git'
 
 # setup rvm.
 set :rvm_type, :user
