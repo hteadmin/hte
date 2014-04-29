@@ -72,8 +72,8 @@ set(:symlinks, [
   }
 ])
 
-set :whenever_command, "bundle exec whenever"
-set :whenever_roles, :app
+# set :whenever_command, "bundle exec whenever"
+# set :whenever_roles, :app
 
 # this:
 # http://www.capistranorb.com/documentation/getting-started/flow/
