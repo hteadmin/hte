@@ -72,6 +72,9 @@ set(:symlinks, [
   }
 ])
 
+set :whenever_command, "bundle exec whenever"
+set :whenever_roles, :app
+
 # this:
 # http://www.capistranorb.com/documentation/getting-started/flow/
 # is worth reading for a quick overview of what tasks are called
