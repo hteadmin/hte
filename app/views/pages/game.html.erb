@@ -1,0 +1,26 @@
+<% content_for :title do %><%= @game.name %><% end %>
+
+<div class="row">
+  <div class="col-xs-8">
+    <div class="white-container">
+      <div class="row">
+        <div class="col-xs-3">
+          <%= image_tag @game.photo.url(:thumb), class: 'img-responsive', alt: @game.name %>
+        </div>
+        <div class="col-xs-9">
+          <h1><%= @game.name %></h1>
+          <div class="alert alert-success">
+            <p><strong><i>** Đã cài sẵn trong <%= game_set_links(@game) %>.</i></strong></p>
+          </div>
+          <% if @game.trailer.present? %>
+            <video id="trailer" src="" class="video-js vjs-default-skin" controls preload="auto" quality="720p" autoplay="autoplay" width="530" height="340" data-setup='{ "techOrder": ["youtube"], "src": "<%= @game.trailer %>" }'></video>
+          <% end %>
+          <div class="summary" style="margin-top: 20px;">
+            <%= simple_format @game.description %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <%= render 'likebox' %>
+</div>

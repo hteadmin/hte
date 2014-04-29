@@ -1,0 +1,14 @@
+<% content_for :title do %>Blog<% end %>
+<div class="row">
+  <div class="col-xs-8">
+    <% if @articles.any? %>
+      <% @articles.each do |article| %>
+        <%= render 'article', article: article %>
+      <% end %>
+    <% else %>
+      <p>Blog hiện đang được cập nhật bài viết.</p>
+    <% end %>
+    <%= paginate @articles %>
+  </div>
+  <%= render 'nav' %>
+</div>

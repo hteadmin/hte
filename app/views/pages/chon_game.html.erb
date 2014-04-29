@@ -1,0 +1,45 @@
+<% content_for :title do %>Chọn Game<% end %>
+
+<div class="row">
+  <div class="col-xs-8">
+    <h1>Chọn Game</h1>
+    <%= form_tag '' do %>
+      <p>Bạn hãy chọn 1 trong các set game dưới đây, set game sẽ được cài sẵn trong máy. Click vào game để xem chi tiết.
+      Nhấn nút "Chọn" để tiến hành đặt thuê.</p>
+      <table class="table-set-game">
+        <tr>
+          <td class="sets">
+            <h3>Set</h3>
+            <div id="sets">
+              <% @instances.each do |gameset| %>
+                <div class="thumbnail set <%= @default_set == gameset ? 'active' : '' %>">
+                  <%= image_tag 'set.png', alt: gameset.name %>
+                  <div class="caption text-center" style="padding: 3px 0 0 0;">
+                    <label><input type="radio" name="gameset" value="<%= gameset.id %>" style="display: none;"> <small><%= gameset.name %></small></label>
+                  </div>
+                </div>
+              <% end %>
+            </div>
+            <p class="text-center" style="margin-top: 20px;">
+              <input type="submit" value="Chọn" class="btn btn-success btn-lg" style="padding: 10px 60px;">
+            </p>
+          </td>
+          <td class="games">
+            <h3>Game cài sẵn trong Set</h3>
+            <% @instances.each do |instance| %>
+              <%= content_tag_for :div, instance, class: 'gameset', style: "display: #{@default_set == instance ? 'block' : 'none'};" do  %>
+                <% instance.games.each do |game| %>
+                  <%= link_to game_path(game.slug), class: 'thumbnail game' do %>
+                    <%= image_tag game.photo.url(:thumb), alt: game.name, class: 'img-responsive' %>
+                    <span><%= game.name %></span>
+                  <% end %>
+                <% end %>
+              <% end %>
+            <% end %>
+          </td>
+        </tr>
+      </table>
+    <% end %>
+  </div>
+  <%= render 'likebox' %>
+</div>

@@ -1,0 +1,13 @@
+namespace :sitemap do
+  desc "Generate sitemap and upload to server"
+  task :reload do
+    puts "Reload sitemap and ping search engine."
+    on roles(:app) do |role|
+      within current_path do
+        with rails_env: fetch(:rails_env) do
+          execute :rake, "sitemap:refresh"
+        end
+      end
+    end
+  end
+end

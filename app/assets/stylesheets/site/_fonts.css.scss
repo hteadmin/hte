@@ -1,0 +1,17 @@
+@font-face {
+  font-family: 'commercb';
+  src: url(font-path('commercb.eot') + "?#iefix") format('embedded-opentype'),
+       url(font-path('commercb.woff')) format('woff'),
+       url(font-path('commercb.ttf'))  format('truetype'),
+       url(font-path('commercb.svg') + "#commercb") format('svg');
+}
+
+@font-face {
+  font-family: 'VideoJS';
+  src: url(font-path('vjs.eot'));
+  src: url(font-path('vjs.eot') + "?#iefix") format('embedded-opentype'),
+       url(font-path('vjs.woff')) format('woff'),
+       url(font-path('vjs.ttf')) format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}

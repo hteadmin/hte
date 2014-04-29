@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>HTE - <%= content_for?(:title) ? yield(:title) : 'Giải trí tại nhà' %></title>
+  <meta name="keywords" content="PS3, PS4, Xbox, Xbox One, Console, Game, HD, Blu-ray, 3D, đầu phát blu-ray, đầu phát hd, thuê máy game, thuê ổ cứng">
+  <meta name="description" content="Dịch vụ giải trí tại nhà HTE, cho thuê máy PS3, PS4, Xbox, Xbox One; cho thuê ổ cứng phim HD">
+  <%= stylesheet_link_tag    'simple', media: 'all' %>
+  <%= csrf_meta_tags %>
+</head>
+
+<body>
+  <div class="container_15" id="wrapper">
+    <div id="main-content">
+      <%= render 'messages' %>
+      <%= yield %>
+    </div>
+    <%= yield :footer %>
+  </div>
+</body>
+</html>

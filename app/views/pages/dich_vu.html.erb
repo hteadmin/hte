@@ -1,0 +1,63 @@
+<% content_for :title do %>Dịch Vụ<% end %>
+<div class="row">
+  <div class="col-xs-8">
+    <h1>Dịch Vụ</h1>
+    <h3>I. Giới Thiệu</h3>
+    <p>Nhằm đáp ứng nhu cầu chơi game tại nhà của các game thủ tại <strong>TP.HCM</strong>,
+    HTE hân hạnh giới thiệu đến các bạn dịch vụ cho thuê máy Play Station 3 (PS3) để giải trí tại nhà.
+    Các máy PS3 của HTE đều đã được cài sẵn game <strong>Bản Quyền</strong> và liên tục được cập nhật các game hay mới nhất. Bạn có thể chơi online hoặc trải nghiệm
+    các ứng dụng có sẵn trong máy như nghe nhạc, xem phim blu-ray, lướt web...
+    </p>
+    <h3>II. Thủ Tục Thuê Máy</h3>
+    <p>Thủ tục nhanh gọn, không yêu cầu đặt cọc. Bạn phải trên 18 tuổi (nếu nhỏ hơn thì nhờ phụ huynh thuê giúp) và có một trong các loại giấy tờ (photo) dưới đây là có thể đặt thuê:</p>
+    <ul>
+      <li>CMND + Hộ Khẩu</li>
+      <li>Hộ Chiếu (Passport) + Hộ Khẩu</li>
+    </ul>
+    <p>Sau khi đã đặt thuê trên website, trong vòng 24h nhân viên HTE sẽ liên hệ và giao máy tại nhà bạn. Bạn hãy chuẩn bị các giấy tờ nêu trên cùng với bản gốc để nhân viên đối chiếu. Sau khi nhân viên kiểm tra thông tin đã khớp với bản gốc, bạn sẽ ký hợp đồng thuê và nhận máy.</p>
+    <h3>III. Bảng Giá</h3>
+    <table class="table table-bordered table-pricing">
+      <tr class="active">
+        <th></th>
+        <th width="30%">Sản Phẩm</th>
+        <th class="text-center">Giá Đang Khuyến Mãi</th>
+        <th class="text-center">Giá Thuê</th>
+      </tr>
+      <% @products.each do |product| %>
+        <tr>
+          <td><%= image_tag product.photo.url(:thumb), alt: product.name, class: 'img-responsive', width: 80 %></td>
+          <td><%= product.name %></td>
+          <td class="text-center">
+            <% if product.sale_price.present? %>
+              <%= number_to_currency product.sale_price %> / <%= product.unit %>
+            <% end %>
+          </td>
+          <td class="text-center">
+            <% if product.sale_price.present? %>
+              <span class="linethrough"><%= number_to_currency product.price %> / <%= product.unit %></span>
+            <% else %>
+              <%= number_to_currency product.price %> / <%= product.unit %>
+            <% end %>
+          </td>
+        </tr>
+      <% end %>
+    </table>
+    <p><i>** Giá phụ kiện trên được áp dụng khi thuê kèm máy game. Trong trường hợp bạn muốn thuê riêng phụ kiện, hãy vào trang <%= link_to '"Thuê phụ kiện"', thue_phu_kien_path %> để xem báo giá và đặt thuê.</i></p>
+    <h4 style="margin-top: 20px;">Khu vực hoạt động và phí giao nhận:</h4>
+    <div class="alert alert-success"><strong>Đơn hàng từ 500.000 đồng trở lên sẽ được miễn phí giao nhận.</strong></div>
+    <table class="table table-bordered">
+      <tr class="active">
+        <th width="30%">Quận</th>
+        <th>Phí Giao Nhận</th>
+      </tr>
+      <% @shippings.each do |shipping| %>
+        <tr>
+          <td><%= shipping.location %></td>
+          <td><%= number_to_currency shipping.price %></td>
+        </tr>
+      <% end %>
+    </table>
+    <div class="fb-comments" data-href="http://hte.vn/dich_vu" data-width="748" data-numposts="5" data-colorscheme="light"></div>
+  </div>
+  <%= render 'likebox' %>
+</div>

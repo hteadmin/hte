@@ -1,0 +1,5 @@
+<div class="bs-docs-section">
+  <h1 class="page-header"><%= link_to article.title, blog_article_path(article.created_at.year, article.created_at.month, article.slug) %></h1>
+  <%= raw article.body %>
+  <p><small><%= article.created_at.strftime('%d/%m/%Y %H:%M') %></small></p>
+</div>

@@ -1,0 +1,15 @@
+<div class="col-xs-4">
+  <h3>Chuyên Mục</h3>
+  <ul>
+    <li><%= link_to 'Bài mới nhất', blog_path %></li>
+    <% Blog::Category.all.each do |category| %>
+      <li><%= link_to category.name, blog_category_path(category.slug) %></li>
+    <% end %>
+  </ul>
+  <h3>Lưu Trữ</h3>
+  <ul>
+  <% Blog::Article.order('created_at ASC').group("DATE_FORMAT(created_at, '%m/%Y')").count.each do |time, counter| %>
+    <li><%= link_to "%s (%s)" % [time, counter], blog_archive_path(time.split('/')[1], time.split('/')[0]) %></li>
+  <% end %>
+  </ul>
+</div>

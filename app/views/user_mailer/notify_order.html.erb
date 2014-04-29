@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <p>Xin chào <b><%= @order.client_name %></b>,</p>
+    <p>
+      HTE vừa mới nhận được đơn hàng của bạn. Trong vòng 24h, chúng tôi sẽ liên hệ để giao hàng cho bạn.</b>
+    </p>
+    <p>
+      Mã đơn hàng của bạn là: <b><%= @order.number %></b>. Để theo dõi đơn hàng, bạn hãy nhập mã đơn hàng này vào website <%= link_to 'http://hte.vn', 'http://hte.vn' %> hoặc truy cập <%= link_to order_url(@order.number), order_url(@order.number) %>.
+    </p>
+    <p>Cảm ơn bạn đã sử dụng dịch vụ của chúng tôi,</p>
+    <p>Ban quản trị HTE</p>
+    <p>-------------------------------</p>
+    <p>CTY TNHH THƯƠNG MẠI DỊCH VỤ HTE</p>
+    <p>Địa chỉ: Tầng Trệt Toà Nhà Tân Đại Nam, 98 Thích Quảng Đức, P.5, Q.Phú Nhuận, TP.HCM</p>
+    <p>Email: info@hte.vn</p>
+    <p>Điện thoại: (08) 6292 1939</p>
+    <p>Hotline: 0907 344 556</p>
+  </body>
+</html>

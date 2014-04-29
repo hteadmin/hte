@@ -1,0 +1,212 @@
+ @import 'bootstrap/mixins';
+//
+// Layouts, Menu
+// --------------------------------------------------
+
+$orange: #000;
+
+body {
+  background-image: image-url('bg.jpg');
+  // background-image: image-url('god_of_war_ascension_3-wallpaper-1920x1080.jpg');
+  background-position:center;
+  background-repeat: none;
+  background-attachment:fixed;
+}
+
+#wrapper {
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'commercb';
+}
+
+h1.normal, h2.normal, h3.normal, h4.normal, h5.normal, h6.normal {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+#main-content {
+  background: #FFF;
+  padding: 30px;
+  border: 1px solid #aaa;
+  @include opacity(0.95);
+  border-radius: 8px;
+   -webkit-box-shadow: 0 0 1em rgba(0, 0, 0, 0.5);
+  -moz-box-shadow: 0 0 1em rgba(0, 0, 0, 0.5);
+  box-shadow: 0 0 1em rgba(0, 0, 0, 0.5);
+}
+
+footer {
+  border-top: 1px solid #dedede;
+  padding-top: 20px;
+  margin-top: 40px;
+  font-weight: bold;
+}
+
+header {
+  border-bottom: 1px solid #dadada;
+  height: 110px;
+  position: relative;
+
+  .search-form {
+    position: absolute;
+    top: 60px;
+    right: 0;
+    width: 250px;
+  }
+
+  #logo {
+    width: 159px;
+    height: 98px;
+    background: image-url('logo.png') no-repeat;
+    text-indent: -9999px;
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+  #hotline {
+    width: 289px;
+    height: 70px;
+    background: image-url('hotline.jpg') no-repeat;
+    text-indent: -9999px;
+    display: block;
+    position: absolute;
+    top: -18px;
+    right: -19px;
+  }
+  ul#main-nav {
+    padding: 0;
+    position: absolute;
+    top: 60px;
+    left: 180px;
+    width: 900px;
+    // margin-bottom: 30px;
+
+    li {
+      list-style: none;
+      display: inline-block;
+
+      a {
+        display: block;
+        font-family: 'commercb';
+        font-size: 28px;
+        text-transform: uppercase;
+        color: lighten(#272727, 60%);
+        background: image-url('line2.gif') no-repeat 0 12px;
+        padding: 0 15px;
+
+        &:hover, &.active {
+          text-decoration: none;
+          color: #9b2001;
+        }
+      }
+    }
+
+    li:first-child {
+      a {
+        background: none;
+      }
+    }
+  }
+}
+.sub-nav-container {
+  border-bottom: 1px solid #dadada;
+  margin-bottom: 30px;
+}
+
+#content {
+  padding-top: 30px;
+}
+
+.gray-container {
+  background: #f3f3f3;
+  padding: 15px;
+}
+.white-container {
+  background: #fff;
+  padding: 15px;
+  border: 1px solid #eceaea;
+}
+
+.linethrough {
+  text-decoration: line-through;
+}
+
+.text-left {
+  text-align: left;
+}
+
+.text-right {
+  text-align: right;
+}
+.no-top {
+  border-top: none !important;
+}
+
+.intro {
+  width: 1096px;
+  height: 640px;
+  background: image-url('intro.jpg') 0 0 no-repeat;
+  position: relative;
+}
+
+.game-more-info {
+  position: relative;
+  top: 370px;
+  left: 56px;
+  padding: 15px 50px 13px;
+  text-transform: uppercase;
+  font-family: 'commercb';
+  font-size: 24px;
+}
+
+table.table-set-game {
+  margin-top: 40px;
+  td {
+    vertical-align: top;
+  }
+  td h3 {
+    margin-top: 0;
+  }
+  td.sets {
+    width: 40%;
+    padding-right: 15px;
+  }
+  td.games {
+    border-left: 1px solid #dadada;
+    padding-left: 15px;
+  }
+}
+
+#sets {
+  overflow: hidden;
+
+  .set {
+    cursor: pointer;
+    width: 80px;
+    float: left;
+    margin-right: 14px;
+    margin-bottom: 14px;
+  }
+
+  .set.active {
+    background: darken(#d9edf7, 20%);
+  }
+}
+
+.table-accessory {
+  tr {
+    th, td {
+      vertical-align: middle !important;
+    }
+    td {
+      font-size: 13px;
+    }
+  }
+}
+
+.red {
+  color: red;
+}

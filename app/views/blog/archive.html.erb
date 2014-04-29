@@ -1,0 +1,13 @@
+<% content_for :title do %>Blog - <%= @month %>/<%= @year %><% end %>
+<div class="row">
+  <div class="col-xs-8">
+    <% if @articles.any? %>
+      <% @articles.each do |article| %>
+        <p><%= link_to article.title, blog_article_path(article.created_at.year, article.created_at.month, article.slug) %></p>
+      <% end %>
+    <% else %>
+      <div class="alert alert-warning">Chuyên mục này chưa có bài viết nào.</div>
+    <% end %>
+  </div>
+  <%= render 'nav' %>
+</div>

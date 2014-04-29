@@ -1,0 +1,31 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  number: MyString
+  client_name: MyString
+  phone: MyString
+  email: MyString
+  street: MyString
+  district_id: 
+  rental_weeks: 1
+  shipping_price: 1
+  subtotal: 1
+  total: 1
+  status: MyString
+  delivered_at: 2014-04-15 12:21:46
+  completed_at: 2014-04-15 12:21:46
+
+two:
+  number: MyString
+  client_name: MyString
+  phone: MyString
+  email: MyString
+  street: MyString
+  district_id: 
+  rental_weeks: 1
+  shipping_price: 1
+  subtotal: 1
+  total: 1
+  status: MyString
+  delivered_at: 2014-04-15 12:21:46
+  completed_at: 2014-04-15 12:21:46

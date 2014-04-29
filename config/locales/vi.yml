@@ -1,0 +1,94 @@
+vi:
+  tuan: 'tuần'
+  dich_vu: 'Dịch Vụ'
+  chon_game: 'Chọn Game'
+  dat_thue: 'Đặt Thuê Máy'
+  thue_phu_kien: 'Thuê Phụ Kiện'
+  client_name: "Tên Khách Hàng"
+  phone: "Điện Thoại"
+  email: 'Email'
+  street: 'Địa chỉ'
+  pending: 'Chờ xử lý'
+  delivered: 'Đã giao hàng'
+  completed: "Đã đóng"
+  cancelled: 'Đã huỷ'
+  at_store: "Tại cửa hàng"
+  at_home: "Tại địa chỉ khách hàng"
+  passport: "Hộ chiếu (Passport)"
+  cmnd: 'CMND'
+  cash: "Tiền mặt"
+  inventory: 'Kho'
+  blog_category: 'Chuyên Mục'
+  blog_article: 'Bài Viết'
+  active_admin:
+    recent_orders: "Đơn hàng mới"
+  number:
+    currency:
+      format:
+        delimiter: "."
+        format: ! '%n %u'
+        precision: 0
+        separator: ! ','
+        significant: false
+        strip_insignificant_zeros: false
+        unit: "đồng"
+  error:
+    select_game_first: "Bạn chưa chọn set game."
+    cannot_create_order: "Đã có lỗi xảy ra. Xin hãy gọi hotline để được hỗ trợ."
+    no_order_found: "Không tìm thấy đơn hàng. Bạn hãy kiểm tra lại mã đơn hàng."
+  success:
+    order_create_successfully: "Hệ thống đã nhận được đơn hàng của bạn."
+  email_notify_order:
+    subject: 'HTE - Đơn hàng %{number}'
+  activerecord:
+    models:
+      instance: Máy Game
+      order: Đơn Hàng
+      product: Sản Phẩm
+      shipping: Phí Giao Hàng
+      order_item: Mục hàng
+      inventory_item: Mục kho
+      blog/category: 'Chuyên Mục'
+      blog/article: 'Bài Viết'
+    attributes:
+      instance:
+        name: "Tên Máy"
+        available: "Chưa cho thuê"
+      game:
+        name: 'Tên Game'
+        description: "Mô Tả"
+      product:
+        name: "Tên Sản Phẩm"
+        price: "Giá Thuê"
+        sale_price: "Giá Khuyến Mãi"
+        noc_price: "Giá Thuê Riêng Lẻ"
+        cost: "Giá Mua"
+        unit: "Đơn vị tính"
+        description: "Mô Tả"
+      order:
+        number: "Mã Đơn Hàng"
+        order_type: "Loại đơn hàng"
+        client_name: "Tên khách hàng"
+        phone: "Điện thoại"
+        email: "Email"
+        street: "Địa chỉ"
+        district: "Quận"
+        rental_weeks: "Thời gian thuê"
+        shipping_price: "Phí giao hàng"
+        subtotal: "Tiền hàng"
+        total: "Tổng cộng"
+        state: "Trạng thái"
+        deposit_type: "Loại thế chấp"
+        deposit_amount: "Tiền thế chấp"
+        delivery_method: "Giao nhận"
+        delivered_at: "Ngày giao"
+        completed_at: "Ngày kết thúc"
+      order_item:
+        name: "Tên sản phẩm"
+        inventory_items: "Kho"
+      shipping:
+        location: "Quận"
+        price: "Giá"
+      inventory_item:
+        name: "Tên trong kho"
+        display_name: "Tên hiển thị trên hợp đồng"

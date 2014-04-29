@@ -1,0 +1,94 @@
+<div class="row">
+  <div class="col-xs-8">
+    <h1>Đơn Hàng: <%= @order.number %></h1>
+    <address>
+      <strong>Khách Hàng:</strong> <%= @order.client_name %><br>
+      <strong>Địa Chỉ:</strong> <%= @order.street %>, <%= @order.district %> , TP.HCM<br>
+      <strong>Điện thoại:</strong><%= @order.phone %><br>
+      <strong>Email:</strong> <%= @order.email %><br>
+      <strong>Trạng Thái:</strong> <span class="label label-info"><%= t @order.state %></span><br>
+      <strong>Ngày Đặt Hàng:</strong> <%= l @order.created_at, format: :long %><br>
+      <% if @order.delivered_at.present? %>
+        <strong>Ngày Giao Máy:</strong> <%= l @order.delivered_at, format: :long %><br>
+      <% end %>
+      <% if @order.completed_at.present? %>
+        <strong>Ngày Trả Máy:</strong> <%= l @order.completed_at, format: :long %><br>
+      <% end %>
+    </address>
+  </div>
+  <div class="col-xs-4">
+    <address>
+      <strong>CTY TNHH TM-DV HTE</strong><br>
+      98 THÍCH QUẢNG ĐỨC, P5, Q.PN, TP.HCM <br>
+      (08) 6292 1939<br>
+      info@hte.vn
+    </address>
+  </div>
+</div>
+<table class="table">
+  <tbody>
+    <tr class="active">
+      <th width="30%">Mục hàng</th>
+      <th>Đơn Giá</th>
+      <th>Số Lượng</th>
+      <th>Số Ngày Thuê</th>
+      <th>Tổng Tạm</th>
+    </tr>
+    <% @order.items.each do |item| %>
+      <tr>
+        <td><%= item.name %></td>
+        <td><%= number_to_currency item.price %> / tuần</td>
+        <td><%= item.quantity %></td>
+        <td><%= @order.rental_weeks %> tuần</td>
+        <td><%= number_to_currency item.total %></td>
+      </tr>
+    <% end %>
+    <tr class="summary" id="subtotal">
+      <td></td>
+      <td></td>
+      <td></td>
+      <td class="title"><strong>Tiền máy</strong></td>
+      <td class="price"><strong><%= number_to_currency @order.subtotal %></strong></td>
+    </tr>
+    <tr class="summary" id="shipping">
+      <td class="no-top"></td>
+      <td class="no-top"></td>
+      <td class="no-top"></td>
+      <td class="title"><strong>Phí giao nhận</strong></td>
+      <td class="price"><strong><%= number_to_currency @order.shipping_price %></strong></td>
+    </tr>
+    <tr class="summary" id="total">
+      <td class="no-top"></td>
+      <td class="no-top"></td>
+      <td class="no-top"></td>
+      <td class="title"><strong>Tổng cộng</strong></td>
+      <td class="price"><strong><%= number_to_currency @order.total %></strong></td>
+    </tr>
+  </tbody>
+</table>
+<h4>Ghi Chú:</h4>
+<ul>
+  <li>HTE sẽ liên hệ với bạn trong vòng 24h để giao hàng.</li>
+  <% if @order.order_type == Order::THUE_PHU_KIEN %>
+    <% if @order.deposit_type == Order::DEPOSIT_PASSPORT %>
+      <li>Bạn hãy chuẩn bị sẵn Hộ Chiếu (Passport).
+    <% elsif @order.deposit_type == Order::DEPOSIT_CASH %>
+      <li>Phí đặt cọc cho phụ kiện là <%= number_to_currency @order.deposit_amount %>
+    <% end %>
+  <% else %>
+    <li>Bạn hãy chuẩn bị 1 trong các loại giấy tờ (photo) dưới đây cùng với bản chính để đối chiếu:
+      <ul>
+        <li>CMND + Hộ Khẩu</li>
+        <li>Hộ Chiếu (Passport) + Hộ Khẩu</li>
+      </ul>
+    </li>
+  <% end %>
+  <li>Vui lòng thanh toán khi nhận hàng.</li>
+</ul>
+
+<% content_for :footer do %>
+  <p class="text-center" style="margin-top: 20px;">
+    <%= link_to 'In hợp đồng', hop_dong_order_path(@order.number, format: :pdf), class: 'btn btn-lg btn-success' %>
+    <%= link_to 'Về trang chủ', root_path, class: 'btn btn-lg btn-success' %>
+  </p>
+<% end %>

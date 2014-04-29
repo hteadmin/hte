@@ -1,0 +1,43 @@
+table.table-pricing {
+  td:first-child, th:first-child {
+    text-align: center;
+    width: 100px;
+  }
+
+  td, th {
+    vertical-align: middle !important;
+  }
+}
+
+.gameset {
+  overflow: hidden;
+
+  .game:nth-child(3n) {
+    margin-right: 0;
+  }
+  .game:nth-child(3n+1) {
+    clear: both;
+  }
+  .game {
+    width: 130px;
+    float: left;
+    margin-right: 10px;
+    display: block;
+    background: #000;
+    color: #e79c27;
+
+    span {
+      display: block;
+      min-height: 60px;
+      padding-top: 5px;
+    }
+
+    &:hover {
+      text-decoration: none;
+    }
+  }
+}
+
+.orange {
+  color: darken(#faa41a, 10%);
+}

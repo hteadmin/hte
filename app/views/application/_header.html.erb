@@ -1,0 +1,19 @@
+<header>
+  <%= link_to 'HTE', root_path, id: 'logo' %>
+  <%= tabs_tag :builder => BootstrapNavBuilder, :open_tabs => { :id => "main-nav" } do |tab| %>
+    <%= tab.dich_vu  t('dich_vu'), dich_vu_path %>
+    <%= tab.chon_game  t('chon_game'), chon_game_path %>
+    <%= tab.dat_thue  t('dat_thue'), dat_thue_path %>
+    <%= tab.thue_phu_kien  t('thue_phu_kien'), thue_phu_kien_path %>
+    <%= tab.blog  'Blog', blog_path %>
+  <% end %>
+  <%= form_tag search_path, class: 'search-form' do %>
+    <div class="input-group">
+      <input type="text" name="number" class="form-control" placeholder="Nhập mã đơn hàng">
+      <span class="input-group-btn">
+        <button class="btn btn-default" type="submit"><i class="fa fa-search"></i></button>
+      </span>
+    </div>
+  <% end %>
+  <div id="hotline"></div>
+</header>

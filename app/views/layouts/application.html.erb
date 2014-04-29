@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>HTE - <%= content_for?(:title) ? yield(:title) : 'Dịch vụ cho thuê máy PS3' %></title>
+  <meta name="keywords" content="PS3, PS4, Xbox, Xbox One, Console, Game, HD, Blu-ray, 3D, đầu phát blu-ray, đầu phát hd, thuê máy game, thuê ổ cứng">
+  <meta name="description" content="Dịch vụ giải trí tại nhà HTE, cho thuê máy PS3, PS4, Xbox, Xbox One; cho thuê ổ cứng phim HD">
+  <%= favicon_link_tag %>
+  <%= stylesheet_link_tag    'site', media: 'all', "data-turbolinks-track" => true %>
+  <%= javascript_include_tag 'application', "data-turbolinks-track" => true %>
+  <%= csrf_meta_tags %>
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-13212114-4', 'hte.vn');
+    ga('send', 'pageview');
+  </script>
+  <script type="text/javascript">
+  var fb_param = {};
+  fb_param.pixel_id = '6015223669908';
+  fb_param.value = '0.00';
+  fb_param.currency = 'USD';
+  (function(){
+    var fpw = document.createElement('script');
+    fpw.async = true;
+    fpw.src = '//connect.facebook.net/en_US/fp.js';
+    var ref = document.getElementsByTagName('script')[0];
+    ref.parentNode.insertBefore(fpw, ref);
+  })();
+  </script>
+  <noscript><img height="1" width="1" alt="" style="display:none" src="https://www.facebook.com/offsite_event.php?id=6015223669908&amp;value=0&amp;currency=USD" /></noscript>
+</head>
+<body>
+  <div id="fb-root"></div>
+  <div id="primary-content">
+    <div class="container_15" id="wrapper">
+      <div id="main-content">
+        <%= render 'header' %>
+        <div id="content">
+          <%= render 'messages' %>
+          <%= yield %>
+        </div>
+        <footer>
+          <div class="container_15">
+            <%= render 'footer' %>
+          </div>
+        </footer>
+      </div>
+    </div>
+  </div>
+  <%= yield :page_js %>
+</body>
+</html>

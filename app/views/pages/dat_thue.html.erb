@@ -1,0 +1,127 @@
+<% content_for :title do %>Đặt Thuê Máy<% end %>
+<%= form_for @cart, url: dat_thue_path, method: :post, html: {id: 'new_order'} do |f| %>
+  <div class="row">
+    <div class="col-xs-8">
+      <h1>Đặt Thuê Máy</h1>
+      <h3>Bạn hãy điền thông tin và hoàn tất đặt hàng</h3>
+      <div class="well" style="margin-top: 30px;">
+        <div class="row">
+          <div class="col-xs-4">
+            <div class="form-group">
+              <div class="input-group input-group">
+                <span class="input-group-addon"><i class="fa fa-user"></i></span>
+                <%= f.text_field :client_name, :'parsley-required' => true, class: 'form-control', placeholder: t('client_name') %>
+              </div>
+            </div>
+          </div>
+          <div class="col-xs-4">
+            <div class="form-group">
+              <div class="input-group input-group">
+                <span class="input-group-addon"><i class="fa fa-phone"></i></span>
+                <%= f.text_field :phone, :'parsley-required' => true, class: 'form-control', placeholder: t('phone') %>
+              </div>
+            </div>
+          </div>
+          <div class="col-xs-4">
+            <div class="form-group">
+              <div class="input-group input-group">
+                <span class="input-group-addon"><i class="fa fa-envelope"></i></span>
+                <%= f.text_field :email, :'parsley-required' => true, :'parsley-type' => 'email', class: 'form-control', placeholder: t('email') %>
+              </div>
+            </div>
+          </div>
+        </div>
+        <label>Địa Chỉ Nhận Máy</label>
+        <div class="row" style="margin-bottom: 0;">
+          <div class="col-xs-6">
+            <div class="form-group">
+              <div class="input-group input-group">
+                <span class="input-group-addon"><i class="fa fa-map-marker"></i></span>
+                <%= f.text_field :street, :'parsley-required' => true, class: 'form-control', placeholder: t('street') %>
+              </div>
+            </div>
+          </div>
+          <div class="col-xs-3">
+            <div class="form-group">
+              <%= f.collection_select :district_id, Shipping.all, 'id', 'location', {:prompt => '---- Quận ----'}, {:'parsley-required' => true, class: 'form-control', id: 'district'} %>
+            </div>
+          </div>
+          <div class="col-xs-3">
+            <div class="form-group">
+              <input type="text" class="form-control" value="TP.HCM" disabled>
+            </div>
+          </div>
+        </div>
+      </div>
+      <h3>Chi Tiết Đơn Hàng</h3>
+      <div class="alert alert-success"><strong>Đơn hàng từ 500.000 đồng trở lên sẽ được miễn phí giao nhận.</strong></div>
+      <table class="table table-order">
+        <tbody>
+          <tr>
+            <td><strong>Thời Gian Thuê</strong></td>
+            <td colspan="3">
+              <div class="form-inline">
+                <%= f.select :rental_weeks, options_for_select(1..4), {include_blank: false}, {id: 'rental_weeks'} %> tuần
+              </div>
+            </td>
+          </tr>
+          <tr class="active">
+            <th width="40%">Mục hàng</th>
+            <th>Đơn Giá</th>
+            <th>Số lượng</th>
+            <th>Tổng tạm</th>
+          </tr>
+          <%= f.fields_for :items do |ff| %>
+            <% if ff.index == 1 %>
+              <tr>
+                <td colspan="4"><strong>THUÊ THÊM PHỤ KIỆN?</strong></td>
+              </tr>
+            <% end %>
+            <tr class="item">
+              <td>
+                <%= ff.object.display_name %>
+                <%= ff.hidden_field :price %>
+                <%= ff.hidden_field :product_id %>
+                <%= ff.hidden_field :instance_id %>
+              </td>
+              <td class="price" data-price="<%= ff.object.price %>"><%= number_to_formatted_currency ff.object.price %> / tuần</td>
+              <td>
+                <%= ff.select :quantity, options_for_select(0..4, ff.object.quantity), {include_blank: false}, {class: 'qty'} %>
+              </td>
+              <td class="total"><%= number_to_formatted_currency(ff.object.quantity * ff.object.price * f.object.rental_weeks) %></td>
+            </tr>
+          <% end %>
+          <tr class="summary" id="subtotal">
+            <td colspan="2" rowspan="3">
+            </td>
+            <td class="title"><strong>Tiền hàng</strong></td>
+            <td class="price"><strong><%= number_to_formatted_currency 0 %></strong></td>
+          </tr>
+          <tr class="summary" id="shipping">
+            <td class="title"><strong>Phí giao nhận</strong></td>
+            <td class="price"><strong><%= number_to_formatted_currency 0 %></strong></td>
+          </tr>
+          <tr class="summary" id="total">
+            <td class="title"><strong>Tổng cộng</strong></td>
+            <td class="price"><strong><%= number_to_formatted_currency 0 %></strong></td>
+          </tr>
+        </tbody>
+      </table>
+      <label>Ghi chú:</label>
+      <%= f.text_area :note, class: 'form-control', rows: 5, placeholder: 'Nhập yêu cầu thêm nếu có...'  %>
+      <div class="text-center" style="margin-top: 20px;">
+        <input type="submit" value="ĐẶT THUÊ" class="btn btn-success btn-lg btn-big"  style="padding: 10px 60px;">
+      </div>
+    </div>
+    <%= render 'likebox' %>
+  </div>
+<% end %>
+
+<% content_for :page_js do %>
+<script>
+  var SHIPPING_PRICES = <%= raw Shipping.value_hash.to_json %>;
+  $(function() {
+    initOrder();
+  });
+</script>
+<% end %>
