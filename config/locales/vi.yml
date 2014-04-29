@@ -40,6 +40,8 @@ vi:
     order_create_successfully: "Hệ thống đã nhận được đơn hàng của bạn."
   email_notify_order:
     subject: 'HTE - Đơn hàng %{number}'
+  email_notify_order_ending:
+    subject: 'HTE - Đơn hàng sắp kết thúc'
   activerecord:
     models:
       instance: Máy Game

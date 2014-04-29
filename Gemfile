@@ -49,6 +49,7 @@ gem 'prawn'
 gem 'tabs_on_rails'
 # gem 'kaminari'
 gem 'kaminari-bootstrap', '~> 3.0.1'
+gem 'whenever', :require => false
 
 group :development do
   gem 'capistrano-rails'

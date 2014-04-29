@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <p>Các đơn hàng sau đây sẽ kết thúc vào ngày mai:</p>
+    <ul>
+      <% @orders.each do |order| %>
+        <li><%= link_to order.number, order_url(order.number) %></li>
+      <% end %>
+    </ul>
+    <p>Ban quản trị HTE</p>
+    <p>-------------------------------</p>
+    <p>CTY TNHH THƯƠNG MẠI DỊCH VỤ HTE</p>
+    <p>Địa chỉ: Tầng Trệt Toà Nhà Tân Đại Nam, 98 Thích Quảng Đức, P.5, Q.Phú Nhuận, TP.HCM</p>
+    <p>Email: info@hte.vn</p>
+    <p>Điện thoại: (08) 6292 1939</p>
+  </body>
+</html>

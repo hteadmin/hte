@@ -14,6 +14,8 @@ class Order < ActiveRecord::Base
   THUE_MAY = 'thue_may'
   THUE_PHU_KIEN = 'thue_phu_kien'
 
+  scope :about_to_end, -> { where(state: 'delivered').where("completed_at IS NOT NULL AND completed_at >= ? AND completed_at <= ?", Date.tomorrow.beginning_of_day, Date.tomorrow.end_of_day) }
+
   def self.create_from_cart(cart)
     begin
       transaction do
