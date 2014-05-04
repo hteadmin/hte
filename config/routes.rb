@@ -10,6 +10,9 @@ Rails.application.routes.draw do
   post 'dat_thue' => 'pages#tao_don_hang'
   post 'search' => 'pages#search', as: :search
   get 'cau_hoi_thuong_gap' => 'pages#cau_hoi_thuong_gap', as: :cau_hoi_thuong_gap
+  get 'dat_hang_truoc_ps4' => 'pages#dat_hang_truoc_ps4', as: :dat_hang_truoc_ps4
+  post 'dat_hang_truoc_ps4' => 'pages#gui_dat_hang_ps4'
+  get 'dat_hang_ps4_thanh_cong' => 'pages#dat_hang_ps4_thanh_cong'
 
   resources :orders, path: 'don-hang', only: [:show] do
     member do

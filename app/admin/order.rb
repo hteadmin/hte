@@ -51,7 +51,9 @@ ActiveAdmin.register Order do
     end
     column :client_name
     column :phone
-    column :email
+    column :street do |order|
+      order.address
+    end
     column :completed_at do |order|
       order.completed_at.present? ? order.completed_at.strftime('%d / %m / %Y') : '---'
     end

@@ -42,6 +42,8 @@ vi:
     subject: 'HTE - Đơn hàng %{number}'
   email_notify_order_ending:
     subject: 'HTE - Đơn hàng sắp kết thúc'
+  email_notify_pre_order:
+    subject: "HTE - Đặt hàng trước thành công"
   activerecord:
     models:
       instance: Máy Game

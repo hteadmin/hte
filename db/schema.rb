@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140424084444) do
+ActiveRecord::Schema.define(version: 20140504081223) do
 
   create_table "active_admin_comments", force: true do |t|
     t.string   "namespace"
@@ -183,6 +183,21 @@ ActiveRecord::Schema.define(version: 20140424084444) do
   end
 
   add_index "orders", ["district_id"], name: "index_orders_on_district_id", using: :btree
+
+  create_table "pre_orders", force: true do |t|
+    t.string   "client_name"
+    t.string   "phone"
+    t.string   "email"
+    t.string   "street"
+    t.integer  "district_id"
+    t.integer  "rental_weeks"
+    t.text     "games"
+    t.text     "other_games"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "pre_orders", ["district_id"], name: "index_pre_orders_on_district_id", using: :btree
 
   create_table "products", force: true do |t|
     t.integer  "root_id"

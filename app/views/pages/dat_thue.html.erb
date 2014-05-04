@@ -1,5 +1,5 @@
 <% content_for :title do %>Đặt Thuê Máy<% end %>
-<%= form_for @cart, url: dat_thue_path, method: :post, html: {id: 'new_order'} do |f| %>
+<%= form_for @cart, url: dat_thue_path, method: :post, html: {id: 'new_order', class: 'parsley-form'} do |f| %>
   <div class="row">
     <div class="col-xs-8">
       <h1>Đặt Thuê Máy</h1>

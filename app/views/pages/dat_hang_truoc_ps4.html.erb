@@ -1,0 +1,92 @@
+<% content_for :title do %>Đặt hàng trước máy PS4<% end %>
+
+<h1>Đặt Hàng Trước Máy PS4</h1>
+
+<div class="alert alert-success">
+<strong>Máy PS4 chuẩn bị ra mắt trong tháng 5/2014 với số lượng hạn chế. Bạn hãy là một trong những người đầu tiên
+trải nghiệm thế hệ console mới nhất này bằng cách đặt hàng trước. Giá thuê máy PS4 khuyến mãi trong tháng 5 chỉ 490.000 đồng/tuần.
+</strong>
+</div>
+
+<div class="row">
+  <div class="col-xs-8">
+    <%= form_for @pre_order, url: dat_hang_truoc_ps4_path, method: :post, html: {class: 'parsley-form'} do |f| %>
+      <h3>Thông tin khách hàng</h3>
+      <div class="well" style="margin-top: 30px;">
+        <div class="row">
+          <div class="col-xs-4">
+            <div class="form-group">
+              <div class="input-group input-group">
+                <span class="input-group-addon"><i class="fa fa-user"></i></span>
+                <%= f.text_field :client_name, :'parsley-required' => true, class: 'form-control', placeholder: t('client_name') %>
+              </div>
+            </div>
+          </div>
+          <div class="col-xs-4">
+            <div class="form-group">
+              <div class="input-group input-group">
+                <span class="input-group-addon"><i class="fa fa-phone"></i></span>
+                <%= f.text_field :phone, :'parsley-required' => true, class: 'form-control', placeholder: t('phone') %>
+              </div>
+            </div>
+          </div>
+          <div class="col-xs-4">
+            <div class="form-group">
+              <div class="input-group input-group">
+                <span class="input-group-addon"><i class="fa fa-envelope"></i></span>
+                <%= f.text_field :email, :'parsley-required' => true, :'parsley-type' => 'email', class: 'form-control', placeholder: t('email') %>
+              </div>
+            </div>
+          </div>
+        </div>
+        <label>Địa Chỉ Nhận Máy</label>
+        <div class="row" style="margin-bottom: 0;">
+          <div class="col-xs-6">
+            <div class="form-group">
+              <div class="input-group input-group">
+                <span class="input-group-addon"><i class="fa fa-map-marker"></i></span>
+                <%= f.text_field :street, :'parsley-required' => true, class: 'form-control', placeholder: t('street') %>
+              </div>
+            </div>
+          </div>
+          <div class="col-xs-3">
+            <div class="form-group">
+              <%= f.collection_select :district_id, Shipping.all, 'id', 'location', {:prompt => '---- Quận ----'}, {:'parsley-required' => true, class: 'form-control', id: 'district'} %>
+            </div>
+          </div>
+          <div class="col-xs-3">
+            <div class="form-group">
+              <input type="text" class="form-control" value="TP.HCM" disabled>
+            </div>
+          </div>
+        </div>
+      </div>
+      <h3>Chọn game bạn muốn chơi trên máy PS4!</h3>
+      <% ps4_games.each do |game| %>
+      <div class="checkbox">
+        <label>
+          <input type="checkbox" value="<%= game[:name] %>" name="pre_order[games][]">
+          <%= game[:name] %> (<%= link_to 'Trailer', game[:trailer], target: '_blank' %>)
+        </label>
+      </div>
+      <% end %>
+      <div class="form-group">
+        <label for="other">Game Khác</label>
+        <textarea id="other" class="form-control" rows="3" placeholder="Nhập tên game"></textarea>
+      </div>
+      <p><b>Thời gian thuê:</b> <%= f.select :rental_weeks, options_for_select(1..4), {include_blank: false}, {id: 'rental_weeks'} %> tuần</p>
+      <div class="text-center" style="margin-top: 20px;">
+        <input type="submit" value="ĐẶT THUÊ" class="btn btn-success btn-lg btn-big"  style="padding: 10px 60px;">
+      </div>
+    <% end %>
+  </div>
+  <%= render 'likebox' %>
+</div>
+
+<% content_for :page_js do %>
+<script>
+  $(function() {
+    initParsleyForm();
+  });
+</script>
+<% end %>

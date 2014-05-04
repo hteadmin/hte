@@ -65,7 +65,10 @@ calculateOrder = ->
   $('.deposit').change ->
     calculateOrder()
 
-  $('#new_order').parsley
+  initParsleyForm()
+
+@initParsleyForm = ->
+  $('.parsley-form').parsley
     inputs: "input, textarea, select" # Default supported inputs.
     excluded: "input[type=hidden], :disabled" # Do not validate input[type=hidden] & :disabled.
     animate: false # fade in / fade out error messages

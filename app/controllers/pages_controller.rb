@@ -115,4 +115,23 @@ class PagesController < ApplicationController
 
   end
 
+  def dat_hang_truoc_ps4
+    @pre_order = PreOrder.new
+  end
+
+  def gui_dat_hang_ps4
+    pre_order = PreOrder.new(params.require(:pre_order).permit!)
+    if pre_order.save
+      UserMailer.notify_pre_order(pre_order).deliver
+      AdminMailer.notify_pre_order(pre_order).deliver
+      redirect_to dat_hang_ps4_thanh_cong_url, success: t('success.pre_order_create_successfully')
+    else
+      redirect_to dat_hang_truoc_ps4_url, danger: t('error.cannot_create_pre_order')
+    end
+  end
+
+  def dat_hang_ps4_thanh_cong
+    render layout: 'simple'
+  end
+
 end
