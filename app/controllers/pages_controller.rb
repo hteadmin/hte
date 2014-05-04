@@ -111,4 +111,8 @@ class PagesController < ApplicationController
     end
   end
 
+  def cau_hoi_thuong_gap
+
+  end
+
 end

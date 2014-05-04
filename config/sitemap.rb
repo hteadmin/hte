@@ -6,6 +6,8 @@ SitemapGenerator::Sitemap.create do
   add dich_vu_path, :priority => 0.8, :changefreq => 'weekly'
   add chon_game_path, :priority => 0.6, :changefreq => 'weekly'
   add thue_phu_kien_path, :priority => 0.6, :changefreq => 'weekly'
+  add cau_hoi_thuong_gap_path, :priority => 0.6, :changefreq => 'weekly'
+  add blog_path, :priority => 0.6, :changefreq => 'weekly'
   Game.find_each do |game|
     add game_path(game.slug), :lastmod => game.updated_at
   end

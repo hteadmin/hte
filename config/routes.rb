@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   get 'dat_thue' => 'pages#dat_thue', as: :dat_thue
   post 'dat_thue' => 'pages#tao_don_hang'
   post 'search' => 'pages#search', as: :search
+  get 'cau_hoi_thuong_gap' => 'pages#cau_hoi_thuong_gap', as: :cau_hoi_thuong_gap
 
   resources :orders, path: 'don-hang', only: [:show] do
     member do

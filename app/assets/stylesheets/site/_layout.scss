@@ -210,3 +210,23 @@ table.table-set-game {
 .red {
   color: red;
 }
+
+ul.dot-menu { text-align : center; margin: 0; padding: 0; padding-bottom: 20px; border-bottom: 1px solid #dedede; margin-bottom: 20px; }
+ul.dot-menu li { display: inline; white-space: nowrap; }
+ul.dot-menu li a { font-size: 16px; text-transform: uppercase; }
+ul.dot-menu li:after { content: " \2219"; padding: 0 10px; }
+ul.dot-menu li.nobullet:after { content: none; }
+
+.underline {
+  text-decoration: underline !important;
+}
+
+dl.faq {
+  dt {
+    margin-bottom: 5px;
+  }
+
+  dd {
+    margin-bottom: 25px;
+  }
+}
