@@ -19,7 +19,7 @@ module ApplicationHelper
       {name: "FINAL FANTASY® XIV: A REALM REBORN™", trailer: "http://www.youtube.com/watch?v=moOVWP7hVuU"},
       {name: "NEED FOR SPEED: RIVALS", trailer: "http://www.youtube.com/watch?v=xsKHweFi7AU"},
       {name: "CALL OF DUTY®: GHOSTS", trailer: "http://www.youtube.com/watch?v=uRlTQinySVw"},
-      {name: "WATCHDOGS", trailer: "http://www.youtube.com/watch?v=xHxX0z2aPAg"},
+      {name: "INFAMOUS: SECOND SON", trailer: "http://www.youtube.com/watch?v=OaqN7aBVXcE"},
       {name: "FIFA 14", trailer: "http://www.youtube.com/watch?v=5HhL8eXSy7A"}
     ]
   end
