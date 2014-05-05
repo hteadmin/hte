@@ -48,6 +48,7 @@ vi:
     models:
       instance: Máy Game
       order: Đơn Hàng
+      pre_order: Đặt Trước PS4
       product: Sản Phẩm
       shipping: Phí Giao Hàng
       order_item: Mục hàng
