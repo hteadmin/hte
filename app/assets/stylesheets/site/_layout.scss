@@ -6,7 +6,7 @@
 $orange: #000;
 
 body {
-  background-image: image-url('bg.jpg');
+  background-image: image-url('bg2.jpg');
   // background-image: image-url('god_of_war_ascension_3-wallpaper-1920x1080.jpg');
   background-position:center;
   background-repeat: none;
@@ -31,10 +31,13 @@ h1.normal, h2.normal, h3.normal, h4.normal, h5.normal, h6.normal {
   padding: 30px;
   border: 1px solid #aaa;
   @include opacity(0.95);
-  border-radius: 8px;
-   -webkit-box-shadow: 0 0 1em rgba(0, 0, 0, 0.5);
-  -moz-box-shadow: 0 0 1em rgba(0, 0, 0, 0.5);
-  box-shadow: 0 0 1em rgba(0, 0, 0, 0.5);
+  border-radius: 5px;
+  // -webkit-box-shadow: 0 0 3px rgba(0, 0, 0, 0.5);
+  // -moz-box-shadow: 0 0 3px rgba(0, 0, 0, 0.5);
+  // box-shadow: 0 0 3px rgba(0, 0, 0, 0.5);
+  -webkit-box-shadow: 0 0 3px rgba(255, 255, 255, 0.5);
+  -moz-box-shadow: 0 0 3px rgba(255, 255, 255, 0.5);
+  box-shadow: 0 0 3px rgba(255, 255, 255, 0.5);
 }
 
 footer {
