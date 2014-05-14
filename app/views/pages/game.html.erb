@@ -13,8 +13,7 @@
             <p><strong><i>** Đã cài sẵn trong <%= game_set_links(@game) %>.</i></strong></p>
           </div>
           <% if @game.trailer.present? %>
-            <video id="trailer" src="" class="video-js vjs-default-skin" controls preload="auto" quality="720p" autoplay="autoplay" width="530" height="340" data-setup='{ "techOrder": ["youtube"], "src": "<%= @game.trailer %>" }'></video>
-            <iframe width="530" height="340" src="http://www.youtube.com/embed/XwmtNk_Yb2Q" frameborder="0"></iframe>
+            <iframe width="530" height="340" src="http://www.youtube.com/embed/<%= @game.trailer %>" frameborder="0"></iframe>
           <% end %>
           <div class="summary" style="margin-top: 20px;">
             <%= simple_format @game.description %>
