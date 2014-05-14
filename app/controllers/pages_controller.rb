@@ -6,14 +6,18 @@ class PagesController < ApplicationController
 
   def dich_vu
     set_tab :dich_vu
-    @products = Product.includes(:accessories)
+    @products = Product.includes(:accessories).order('root_id')
     @shippings = Shipping.all
   end
 
   def chon_game
     set_tab :chon_game
-    @instances = Instance.includes(:games)
-    @default_set = @instances.first
+    @product_instances = Instance.includes(:games, :product).group_by(&:product)
+    @default_product = @product_instances.keys.first
+    if params[:product].present?
+      @default_product = Product.find_by_slug(params[:product])
+    end
+    @default_set = @default_product.instances.first
     if current_cart.primary_item && current_cart.primary_item.instance
       @default_set = current_cart.primary_item.instance
     end
@@ -112,7 +116,7 @@ class PagesController < ApplicationController
   end
 
   def cau_hoi_thuong_gap
-
+    set_tab :cau_hoi_thuong_gap
   end
 
   def dat_hang_truoc_ps4

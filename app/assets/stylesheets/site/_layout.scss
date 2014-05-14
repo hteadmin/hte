@@ -54,8 +54,8 @@ header {
 
   .search-form {
     position: absolute;
-    top: 60px;
-    right: 0;
+    top: 1px;
+    right: 300px;
     width: 250px;
   }
 
@@ -82,7 +82,7 @@ header {
   ul#main-nav {
     padding: 0;
     position: absolute;
-    top: 60px;
+    top: 65px;
     left: 180px;
     width: 900px;
     // margin-bottom: 30px;
@@ -94,7 +94,7 @@ header {
       a {
         display: block;
         font-family: 'commercb';
-        font-size: 28px;
+        font-size: 26px;
         text-transform: uppercase;
         color: lighten(#272727, 60%);
         background: image-url('line2.gif') no-repeat 0 12px;
@@ -102,7 +102,7 @@ header {
 
         &:hover, &.active {
           text-decoration: none;
-          color: #9b2001;
+          color: #78a300;
         }
       }
     }
@@ -148,22 +148,22 @@ header {
   border-top: none !important;
 }
 
-.intro {
-  width: 1096px;
-  height: 640px;
-  background: image-url('intro.jpg') 0 0 no-repeat;
-  position: relative;
-}
+// .intro {
+//   width: 1096px;
+//   height: 640px;
+//   background: image-url('intro.jpg') 0 0 no-repeat;
+//   position: relative;
+// }
 
-.game-more-info {
-  position: relative;
-  top: 370px;
-  left: 56px;
-  padding: 15px 50px 13px;
-  text-transform: uppercase;
-  font-family: 'commercb';
-  font-size: 24px;
-}
+// .game-more-info {
+//   position: relative;
+//   top: 370px;
+//   left: 56px;
+//   padding: 15px 50px 13px;
+//   text-transform: uppercase;
+//   font-family: 'commercb';
+//   font-size: 24px;
+// }
 
 table.table-set-game {
   margin-top: 40px;
@@ -176,6 +176,7 @@ table.table-set-game {
   td.sets {
     width: 40%;
     padding-right: 15px;
+    padding-top: 0;
   }
   td.games {
     border-left: 1px solid #dadada;
@@ -183,8 +184,9 @@ table.table-set-game {
   }
 }
 
-#sets {
+.sets {
   overflow: hidden;
+  padding-top: 20px;
 
   .set {
     cursor: pointer;
@@ -240,4 +242,22 @@ dl.faq {
   a {
     display: block;
   }
+}
+
+.ad-callout {
+  list-style: none;
+  margin: 30px 0 0 0;
+  padding: 0;
+
+  li {
+    background: image-url('bullet.png') no-repeat left center;
+    font-size: 22px;
+    font-family: 'commercb';
+    padding: 5px 0 5px 45px;
+  }
+}
+
+h1#service {
+  margin-bottom: 40px;
+  font-size: 48px;
 }

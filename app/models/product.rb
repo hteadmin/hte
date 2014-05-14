@@ -5,6 +5,8 @@ class Product < ActiveRecord::Base
   belongs_to :root, :class_name => 'Product'
   has_many :accessories, :class_name => 'Product', :foreign_key => 'root_id'
 
+  has_many :instances, dependent: :destroy
+
   scope :accessories, -> {where("root_id IS NOT NULL")}
 
   def set_default_url

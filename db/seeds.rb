@@ -31,6 +31,10 @@ Product.create!(name: 'Máy PS3 (bao gồm 1 tay cầm + game đã được cài
   Product.create!(root: ps3, name: 'Tay cầm Navigator', slug: 'navigator', cost: 900000, price: 100000, sale_price: 80000, noc_price: 120000, unit: 'tuần / tay', photo: get_product_photo('ps3_navigator.jpg'))
 end
 
+Product.create!(name: 'Máy PS4 (bao gồm 1 tay cầm + game đã được cài sẵn trong máy)', slug: 'ps4', cost: 10000000, price: 490000, sale_price: 380000, unit: 'tuần / máy', photo: get_product_photo('ps4.jpg')).tap do |ps4|
+  Product.create!(root: ps4, name: 'Tay Cầm', slug: 'tay-cam-ps4', cost: 1000000, price: 100000, sale_price: 80000, noc_price: 120000, unit: 'tuần / tay', photo: get_product_photo('ps4-controller.jpg'))
+end
+
 Game.create! name: "Dynasty Warrior 8", slug: 'dynasty-warrior-8'
 Game.create! name: "Resident Evil 6", slug: 'resident-evil-6'
 Game.create! name: "God of War Ascension", slug: 'god-of-war-ascension'

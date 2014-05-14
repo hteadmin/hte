@@ -41,3 +41,13 @@ table.table-pricing {
 .orange {
   color: darken(#faa41a, 10%);
 }
+
+ul#ps-tabs {
+  font-family: 'ps';
+
+  li a {
+    text-transform: uppercase;
+    font-size: 20px;
+    padding: 10px 25px;
+  }
+}

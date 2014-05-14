@@ -15,6 +15,7 @@ vi:
   at_store: "Tại cửa hàng"
   at_home: "Tại địa chỉ khách hàng"
   passport: "Hộ chiếu (Passport)"
+  cau_hoi_thuong_gap: 'Câu hỏi thường gặp'
   cmnd: 'CMND'
   cash: "Tiền mặt"
   inventory: 'Kho'
