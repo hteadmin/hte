@@ -20,9 +20,11 @@ class PagesController < ApplicationController
     @default_set = @default_product.instances.first
     if current_cart.primary_item && current_cart.primary_item.instance
       @default_set = current_cart.primary_item.instance
+      @default_product = @default_set.product
     end
     if params[:set].present?
       @default_set = Instance.find_by_slug(params[:set])
+      @default_product = @default_set.product
     end
   end
 
