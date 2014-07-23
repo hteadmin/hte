@@ -19,8 +19,7 @@
     <table class="table table-bordered table-pricing">
       <tr class="active">
         <th></th>
-        <th width="30%">Sản Phẩm</th>
-        <th class="text-center">Giá Đang Khuyến Mãi</th>
+        <th width="60%">Sản Phẩm</th>
         <th class="text-center">Giá Thuê</th>
       </tr>
       <% @products.each do |product| %>
@@ -28,21 +27,12 @@
           <td><%= image_tag product.photo.url(:thumb), alt: product.name, class: 'img-responsive', width: 80 %></td>
           <td><%= product.name %></td>
           <td class="text-center">
-            <% if product.sale_price.present? %>
-              <%= number_to_currency product.sale_price %> / <%= product.unit %>
-            <% end %>
-          </td>
-          <td class="text-center">
-            <% if product.sale_price.present? %>
-              <span class="linethrough"><%= number_to_currency product.price %> / <%= product.unit %></span>
-            <% else %>
-              <%= number_to_currency product.price %> / <%= product.unit %>
-            <% end %>
+            <%= number_to_currency product.price %> / <%= product.unit %>
           </td>
         </tr>
       <% end %>
     </table>
-    <p><i>** Giá phụ kiện trên được áp dụng khi thuê kèm máy game. Trong trường hợp bạn muốn thuê riêng phụ kiện, hãy vào trang <%= link_to '"Thuê phụ kiện"', thue_phu_kien_path %> để xem báo giá và đặt thuê.</i></p>
+    <p><strong><i>** Khách hàng đã thuê máy sẽ được giảm giá 20%.</i></strong></p>
     <h4 style="margin-top: 20px;">Khu vực hoạt động và phí giao nhận:</h4>
     <div class="alert alert-success"><strong>Đơn hàng từ 500.000 đồng trở lên sẽ được miễn phí giao nhận.</strong></div>
     <table class="table table-bordered">
